@@ -47,7 +47,7 @@ if (!file.exists(here(shp_path))) {
         mutate(GEOID = paste0(censable::match_fips("AZ"), vtd)) %>%
         select(-vtd)
     d_cd <- make_from_baf("AZ", "CD", "VTD", year = 2010)  %>%
-        transmute(GEOID = paste0(censable::match_fips("AZ"), vtd),
+        trwansmute(GEOID = paste0(censable::match_fips("AZ"), vtd),
             cd_2000 = as.integer(cd))
     az_shp <- left_join(az_shp, d_muni, by = "GEOID") %>%
         left_join(d_cd, by = "GEOID") %>%
